@@ -38,15 +38,6 @@ Sinothando_Mthombeni_CV.pdf     Downloadable CV (add this — see below)
 README.md                       This file
 ```
 
-## Setup — before deploying
-
-1. **Add your photo.** Drop a square-ish portrait into the repo root named `profile.jpg` (or update the `src` in the `.badge-frame img` tag in `index.html` to match your filename). Until a photo is added, the badge automatically falls back to a monogram.
-2. **Add your CV.** Place your current CV PDF in the repo root and make sure the filename matches the `href` on the "Download CV" button (`Sinothando_Mthombeni_CV.pdf`).
-3. **Wire up the live demo.** Once the Heritage Site Information System is deployed on Render.com, set the `demoUrl` constant near the bottom of `index.html` to that URL — it automatically activates the "Live demo" button and the note in the flagship section.
-4. **Update repo links.** Swap the placeholder GitHub links for the direct repository URLs of each project once confirmed.
-
-## Deploying (GitHub Pages)
-
 1. Push `index.html`, `profile.jpg`, and your CV PDF to the `main` branch.
 2. In the repo, go to **Settings → Pages**.
 3. Under **Source**, select the `main` branch and `/ (root)` folder.

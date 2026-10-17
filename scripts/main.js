@@ -2,6 +2,7 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
 const revealItems = document.querySelectorAll('.reveal');
 
 if ('IntersectionObserver' in window && !reduceMotion) {
+  document.documentElement.classList.add('js-reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {

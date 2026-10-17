@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Case study: Heritage Site Information System by Sinothando Mthombeni.">
+  <link rel="canonical" href="https://sinothando-mthombeni.github.io/myportfolio/projects/heritage.html">
+  <title>Heritage Site Information System — Case Study</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="case-header"><nav class="shell nav" aria-label="Case study navigation"><a class="brand" href="../index.html" aria-label="Back to portfolio">SM<span>.</span></a><div class="nav-links"><a href="../index.html#work">All work</a><a class="nav-cta" href="https://github.com/Sinothando-Mthombeni/heritage-site-information-system" target="_blank" rel="noopener">Repository ↗</a></div></nav></header>
+  <main class="shell case-main" id="main"><p class="case-kicker">01 / FULL-STACK + DATA</p><h1>Heritage Site Information System</h1><p class="case-summary">A Django platform designed to manage heritage-site information while keeping transactional work and analytical reporting workloads distinct.</p><div class="case-hero-visual"><div class="project-visual heritage-visual"><svg viewBox="0 0 500 360" aria-hidden="true"><line x1="112" y1="78" x2="365" y2="150"/><line x1="365" y1="150" x2="145" y2="295"/><line x1="365" y1="150" x2="405" y2="295"/></svg><span class="arch-box a">DJANGO APP</span><span class="arch-box b">SERVICE LAYER</span><span class="arch-box c">POSTGRESQL</span><span class="arch-box d">MONGODB</span></div></div>
+    <section class="case-section"><h2>Problem</h2><p>Heritage-site information needs operational records and reporting support, with different data-access patterns for each.</p></section>
+    <section class="case-section"><h2>Solution</h2><p>A Django application with a service layer and a dual-database design: PostgreSQL for transactional data and MongoDB for analytical and reporting workloads.</p></section>
+    <section class="case-section"><h2>Architecture</h2><p>The interface connects to Django and its service layer, which keeps application logic separate from the transactional and analytical data stores.</p></section>
+    <section class="case-section"><h2>Key decisions</h2><div class="decision-grid"><article class="decision"><h3>Separate workloads</h3><p>PostgreSQL supports transactional records while MongoDB supports analytical and reporting needs.</p></article><article class="decision"><h3>Repeatable delivery</h3><p>Docker and GitHub Actions make the application workflow repeatable.</p></article></div></section>
+    <section class="case-section"><h2>Outcome</h2><div class="case-outcome"><strong>45 tests</strong><span>SUPPORTED BY TWO DATABASE ENGINES AND A CI/CD PIPELINE</span></div></section>
+  </main><footer class="shell footer"><span>Sinothando Mthombeni</span><a href="../index.html#work">Back to selected work ↑</a></footer>
+</body></html>

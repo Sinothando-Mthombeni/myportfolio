@@ -1,349 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sinothando Mthombeni — Systems & Software</title>
-<meta name="description" content="Sinothando Mthombeni — Systems & Software. IT Support Technician, software builder, data practitioner and systems-focused technologist.">
-<meta name="theme-color" content="#070a0f">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#070a0f; --bg2:#0b1018; --panel:#0d131c; --panel2:#111923;
-  --line:#1d2936; --line2:#253443; --text:#f8fafc; --muted:#94a3b8; --faint:#5d6c7e;
-  --blue:#7dd3fc; --violet:#a78bfa; --green:#34d399; --amber:#fbbf24;
-  --blue-soft:rgba(125,211,252,.10); --green-soft:rgba(52,211,153,.09);
-  --mono:'JetBrains Mono',monospace; --sans:'DM Sans',sans-serif; --display:'Space Grotesk',sans-serif;
-  --rail:82px; --max:1440px;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:40px}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-2;background:
- radial-gradient(circle at 72% 12%,rgba(125,211,252,.06),transparent 28%),
- radial-gradient(circle at 20% 70%,rgba(167,139,250,.045),transparent 28%),
- linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
- linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:auto,auto,56px 56px,56px 56px}
-body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:20;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
-a{color:inherit;text-decoration:none}button{font:inherit}
-::selection{background:rgba(125,211,252,.2);color:var(--blue)}
-:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
-.progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--blue),var(--violet));z-index:100}
-.app{min-height:100vh;display:flex}
-.rail{position:fixed;left:0;top:0;bottom:0;width:var(--rail);border-right:1px solid var(--line);background:rgba(7,10,15,.86);backdrop-filter:blur(18px);z-index:60;display:flex;flex-direction:column;align-items:center;padding:22px 0}
-.logo{width:38px;height:38px;border:1px solid var(--line2);display:grid;place-items:center;font:700 12px var(--mono);color:var(--blue);background:var(--panel);box-shadow:0 0 30px rgba(125,211,252,.04)}
-.rail-nav{display:flex;flex-direction:column;gap:10px;margin-top:64px}
-.rail-link{width:48px;height:48px;border:1px solid transparent;color:var(--faint);display:grid;place-items:center;position:relative;transition:.2s}
-.rail-link span{font:600 10px var(--mono);letter-spacing:.08em}
-.rail-link:after{content:attr(data-label);position:absolute;left:60px;top:50%;transform:translateY(-50%) translateX(-4px);background:var(--panel2);border:1px solid var(--line2);padding:6px 9px;color:var(--text);font:11px var(--mono);white-space:nowrap;opacity:0;pointer-events:none;transition:.15s}
-.rail-link:hover:after{opacity:1;transform:translateY(-50%) translateX(0)}
-.rail-link:hover,.rail-link.active{color:var(--blue);border-color:var(--line2);background:var(--blue-soft)}
-.rail-bottom{margin-top:auto;display:flex;flex-direction:column;gap:8px}
-.rail-bottom a{font:11px var(--mono);color:var(--faint);padding:8px}.rail-bottom a:hover{color:var(--text)}
-.main{margin-left:var(--rail);width:calc(100% - var(--rail))}
-.topbar{height:58px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 38px;position:sticky;top:0;z-index:40;background:rgba(7,10,15,.72);backdrop-filter:blur(18px)}
-.status{display:flex;gap:10px;align-items:center;font:11px var(--mono);color:var(--muted);letter-spacing:.04em}
-.status-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px rgba(52,211,153,.7);animation:pulse 2s infinite}
-@keyframes pulse{50%{opacity:.35;box-shadow:0 0 3px rgba(52,211,153,.2)}}
-.top-actions{display:flex;gap:18px;font:11px var(--mono);color:var(--muted)}
-.top-actions a:hover{color:var(--blue)}
-.wrap{max-width:var(--max);margin:auto;padding:0 52px}
-section{position:relative}
-.hero{min-height:calc(100vh - 58px);display:grid;align-items:center;padding:80px 0 90px;overflow:hidden}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);gap:70px;align-items:center}
-.eyebrow{font:600 11px var(--mono);letter-spacing:.14em;color:var(--blue);text-transform:uppercase;display:flex;align-items:center;gap:10px}
-.eyebrow:before{content:"";width:26px;height:1px;background:var(--blue)}
-h1{font:700 clamp(52px,7vw,106px)/.9 var(--display);letter-spacing:-.055em;margin:22px 0 24px;max-width:900px}
-h1 em{font-style:normal;color:var(--muted)}
-.hero-copy{max-width:680px;color:var(--muted);font-size:18px}
-.hero-copy strong{color:var(--text);font-weight:600}
-.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
-.btn{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line2);padding:12px 16px;font:600 11px var(--mono);letter-spacing:.04em;background:var(--panel);transition:.2s}
-.btn.primary{background:var(--text);color:var(--bg);border-color:var(--text)}
-.btn:hover{transform:translateY(-2px);border-color:var(--blue);box-shadow:0 10px 30px rgba(0,0,0,.2)}
-.btn.primary:hover{border-color:var(--blue);background:var(--blue)}
-.signals{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin-top:52px;padding-top:22px;max-width:760px}
-.signal b{display:block;font:700 22px var(--display);letter-spacing:-.03em}.signal span{font:10px var(--mono);color:var(--faint);text-transform:uppercase;letter-spacing:.06em}
-.graph{min-height:520px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(13,19,28,.9),rgba(7,10,15,.75));position:relative;overflow:hidden}
-.graph-head{height:44px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 14px;font:10px var(--mono);color:var(--faint)}
-.graph-dots{display:flex;gap:6px}.graph-dots i{width:6px;height:6px;border-radius:50%;background:var(--line2)}
-.graph canvas{position:absolute;inset:44px 0 0;width:100%;height:calc(100% - 44px)}
-.graph-overlay{position:absolute;left:20px;bottom:20px;right:20px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.node-card{border:1px solid var(--line);background:rgba(13,19,28,.9);padding:11px 12px}.node-card b{display:block;font:11px var(--mono);color:var(--text)}.node-card span{font:10px var(--mono);color:var(--faint)}
-.section{padding:110px 0;border-top:1px solid var(--line)}
-.section-head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:46px}
-.kicker{font:10px var(--mono);color:var(--blue);letter-spacing:.12em;text-transform:uppercase}.section h2{font:700 clamp(34px,5vw,62px)/1 var(--display);letter-spacing:-.045em;margin-top:9px}.section-intro{max-width:520px;color:var(--muted);font-size:15px}
-.about-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:60px}.about-lead{font:500 clamp(25px,3vw,40px)/1.2 var(--display);letter-spacing:-.025em}.about-lead span{color:var(--muted)}.about-text{margin-top:24px;color:var(--muted);max-width:700px}
-.fact-grid{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line)}.fact{padding:18px;border-bottom:1px solid var(--line)}.fact:nth-child(odd){border-right:1px solid var(--line)}.fact:nth-last-child(-n+2){border-bottom:0}.fact small{font:10px var(--mono);color:var(--faint);text-transform:uppercase}.fact strong{display:block;margin-top:6px;font:600 14px var(--mono)}
-.project-feature{border:1px solid var(--line);background:var(--panel);display:grid;grid-template-columns:1fr 1fr;min-height:500px}.project-info{padding:42px}.project-number{font:11px var(--mono);color:var(--blue)}.project-title{font:700 clamp(32px,4vw,52px)/1 var(--display);letter-spacing:-.04em;margin:14px 0}.project-desc{color:var(--muted);max-width:560px}.tags{display:flex;flex-wrap:wrap;gap:7px;margin:24px 0}.tag{font:10px var(--mono);color:var(--muted);border:1px solid var(--line2);padding:6px 8px;background:var(--bg2)}.metrics{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-top:30px}.metric{padding:16px 12px 0 0}.metric b{display:block;font:700 25px var(--display)}.metric span{font:10px var(--mono);color:var(--faint)}.architecture{border-left:1px solid var(--line);padding:30px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 50%,rgba(125,211,252,.06),transparent 55%)}
-.arch{width:100%;max-width:470px}.arch-title{font:10px var(--mono);color:var(--faint);margin-bottom:18px}.flow{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:relative}.flow:before{content:"";position:absolute;left:50%;top:34px;bottom:34px;width:1px;background:linear-gradient(var(--blue),var(--violet));opacity:.35}.box{position:relative;border:1px solid var(--line2);background:rgba(13,19,28,.95);padding:16px;min-height:78px}.box:nth-child(2n){transform:translateY(36px)}.box b{font:11px var(--mono);display:block}.box span{font:10px var(--faint);display:block;margin-top:4px}.box i{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--blue);right:-3px;top:50%;box-shadow:0 0 12px rgba(125,211,252,.8)}.box:nth-child(2n) i{left:-3px;right:auto;background:var(--violet)}
-.project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:16px}.project-card{border:1px solid var(--line);background:var(--panel);padding:28px;min-height:280px;display:flex;flex-direction:column;transition:.2s}.project-card:hover{transform:translateY(-4px);border-color:var(--line2);box-shadow:0 20px 50px rgba(0,0,0,.18)}.card-top{display:flex;justify-content:space-between;font:10px var(--mono);color:var(--faint)}.project-card h3{font:700 30px/1 var(--display);letter-spacing:-.035em;margin:28px 0 12px}.project-card p{color:var(--muted);font-size:14px}.card-link{margin-top:auto;padding-top:25px;color:var(--blue);font:11px var(--mono)}
-.timeline{border-left:1px solid var(--line2);margin-left:10px}.timeline-item{padding:0 0 52px 34px;position:relative}.timeline-item:before{content:"";position:absolute;left:-5px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:1px solid var(--blue);box-shadow:0 0 12px rgba(125,211,252,.4)}.timeline-date{font:10px var(--mono);color:var(--blue)}.timeline h3{font:700 27px var(--display);margin:8px 0 4px}.timeline-role{font:12px var(--mono);color:var(--muted)}.timeline p{max-width:760px;color:var(--muted);margin-top:12px}
-.cap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}.cap{background:var(--panel);padding:25px;min-height:220px}.cap .icon{font:14px var(--mono);color:var(--blue)}.cap h3{font:700 21px var(--display);margin:18px 0 8px}.cap p{font-size:13px;color:var(--muted)}.cap ul{list-style:none;margin-top:18px;display:flex;flex-wrap:wrap;gap:6px}.cap li{font:10px var(--mono);color:var(--faint);border:1px solid var(--line);padding:5px 7px}
-.contact{padding-bottom:80px}.contact-box{border:1px solid var(--line2);padding:52px;background:linear-gradient(135deg,rgba(125,211,252,.07),rgba(167,139,250,.04) 45%,rgba(52,211,153,.04));display:flex;justify-content:space-between;align-items:end;gap:30px}.contact-box h2{font-size:clamp(36px,6vw,76px);max-width:800px}.contact-box p{color:var(--muted);max-width:580px;margin-top:14px}.contact-actions{display:flex;gap:10px;flex-wrap:wrap}
-footer{border-top:1px solid var(--line);padding:25px 0 50px;color:var(--faint);font:10px var(--mono);display:flex;justify-content:space-between}
-.mobile-nav{display:none}
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease}.reveal.visible{opacity:1;transform:none}
-@media(max-width:1000px){.hero-grid,.about-grid,.project-feature{grid-template-columns:1fr}.graph{min-height:420px}.architecture{border-left:0;border-top:1px solid var(--line)}.cap-grid{grid-template-columns:1fr 1fr}.contact-box{align-items:start;flex-direction:column}}
-@media(max-width:760px){:root{--rail:0px}.rail{display:none}.main{margin-left:0;width:100%}.topbar{padding:0 18px}.top-actions a:nth-child(2){display:none}.wrap{padding:0 20px}.hero{padding:65px 0}.hero-grid{gap:38px}h1{font-size:clamp(48px,15vw,78px)}.signals{grid-template-columns:1fr 1fr;gap:22px}.graph{min-height:390px}.section{padding:80px 0}.section-head{display:block}.section-intro{margin-top:18px}.project-feature{min-height:0}.project-info{padding:28px}.architecture{padding:24px}.project-grid{grid-template-columns:1fr}.cap-grid{grid-template-columns:1fr}.contact-box{padding:30px}.mobile-nav{position:fixed;display:flex;left:12px;right:12px;bottom:12px;height:60px;background:rgba(13,19,28,.94);border:1px solid var(--line2);backdrop-filter:blur(18px);z-index:80;justify-content:space-around}.mobile-nav a{display:grid;place-items:center;font:9px var(--mono);color:var(--faint);padding:7px 12px}.mobile-nav a.active{color:var(--blue)}footer{padding-bottom:90px;gap:20px;flex-direction:column}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.status-dot{animation:none}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sinothando Mthombeni — software engineer building practical systems, data products and reliable software.">
+  <meta name="author" content="Sinothando Mthombeni">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://sinothando-mthombeni.github.io/myportfolio/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sinothando Mthombeni — Software Engineer">
+  <meta property="og:description" content="Selected software, data and systems work by Sinothando Mthombeni.">
+  <meta property="og:url" content="https://sinothando-mthombeni.github.io/myportfolio/">
+  <meta property="og:site_name" content="Sinothando Mthombeni">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Sinothando Mthombeni — Software Engineer">
+  <meta name="twitter:description" content="Selected software, data and systems work by Sinothando Mthombeni.">
+  <meta name="theme-color" content="#f7f6f2">
+  <title>Sinothando Mthombeni — Software Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-<div class="progress" id="progress"></div>
-
-<div class="app">
-<aside class="rail" aria-label="Primary navigation">
-  <a class="logo" href="#overview" aria-label="S//SYSTEMS home">S//</a>
-  <nav class="rail-nav">
-    <a class="rail-link active" href="#overview" data-label="Overview"><span>01</span></a>
-    <a class="rail-link" href="#work" data-label="Work"><span>02</span></a>
-    <a class="rail-link" href="#projects" data-label="Projects"><span>03</span></a>
-    <a class="rail-link" href="#stack" data-label="Stack"><span>04</span></a>
-    <a class="rail-link" href="#contact" data-label="Contact"><span>05</span></a>
-  </nav>
-  <div class="rail-bottom">
-    <a href="https://github.com/Sinothando-Mthombeni/myportfolio" target="_blank" rel="noopener">GH</a>
-    <a href="https://www.linkedin.com/in/sinothando-mthombeni/" target="_blank" rel="noopener">IN</a>
-  </div>
-</aside>
-
-<main class="main">
-  <header class="topbar">
-    <div class="status"><span class="status-dot"></span> SYSTEM STATUS: ONLINE <span style="color:var(--faint)">/</span> MEGA · MPUMALANGA</div>
-    <div class="top-actions"><a href="#contact">AVAILABLE FOR OPPORTUNITIES</a><a href="Sinothando_General_CV.pdf" download>DOWNLOAD CV ↓</a></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="shell nav" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="Sinothando Mthombeni home">SM<span>.</span></a>
+      <div class="nav-links">
+        <a href="#work">Work</a><a href="#about">About</a><a href="#experience">Experience</a><a class="nav-cta" href="#contact">Let’s talk</a>
+      </div>
+    </nav>
   </header>
 
-  <section class="hero" id="overview">
-    <div class="wrap hero-grid">
-      <div class="reveal">
-        <div class="eyebrow">S//SYSTEMS · SINOTHANDO MTHOMBENI</div>
-        <h1>Systems.<br><em>Software.</em><br>Built to work.</h1>
-        <p class="hero-copy">I build <strong>software, data systems and the infrastructure beneath them</strong> — while working hands-on in IT support and systems administration.</p>
-        <div class="actions">
-          <a class="btn primary" href="#projects">EXPLORE WORK <span>→</span></a>
-          <a class="btn" href="Sinothando_General_CV.pdf" download>DOWNLOAD CV <span>↓</span></a>
-        </div>
-        <div class="signals">
-          <div class="signal"><b>03</b><span>Core projects</span></div>
-          <div class="signal"><b>45</b><span>Automated tests</span></div>
-          <div class="signal"><b>86%+</b><span>Apex coverage</span></div>
-          <div class="signal"><b>150k+</b><span>Records processed</span></div>
-        </div>
-      </div>
-
-      <div class="graph reveal" aria-label="Interactive system architecture visual">
-        <div class="graph-head"><span>ARCHITECTURE / LIVE VIEW</span><span id="graphMode">NODES 04 · LINKS 04</span></div>
-        <canvas id="network" aria-hidden="true"></canvas>
-        <div class="graph-overlay">
-          <div class="node-card"><b>SOFTWARE</b><span>Django · APIs · Salesforce</span></div>
-          <div class="node-card"><b>DATA</b><span>SQL · MongoDB · ETL</span></div>
-          <div class="node-card"><b>SYSTEMS</b><span>Windows · AD · PowerShell</span></div>
-          <div class="node-card"><b>DELIVERY</b><span>Docker · CI/CD · Testing</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="work">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div><div class="kicker">01 / PROFILE</div><h2>Engineering mindset,<br>systems perspective.</h2></div>
-        <p class="section-intro">A BSc IT graduate working across the boundary between people, infrastructure, applications and data.</p>
-      </div>
-      <div class="about-grid">
+  <main id="main">
+    <section class="hero shell" id="top" aria-labelledby="hero-title">
+      <div class="hero-grid">
         <div class="reveal">
-          <div class="about-lead">I don't see support, software and data as separate worlds. <span>They are layers of the same system.</span></div>
-          <p class="about-text">I'm currently an IT Support Technician at the Mpumalanga Economic Growth Agency (MEGA), developing practical experience in user support, access administration, troubleshooting and systems administration. Alongside that work, I build portfolio projects to deepen my software engineering, data engineering and Salesforce development skills.</p>
-          <p class="about-text">My strongest work combines a real problem, a clear architecture and evidence that the system works — tests, pipelines, database decisions, automation and measurable outcomes.</p>
-        </div>
-        <div class="fact-grid reveal">
-          <div class="fact"><small>Degree</small><strong>BSc Information Technology</strong></div>
-          <div class="fact"><small>University</small><strong>North-West University</strong></div>
-          <div class="fact"><small>Graduated</small><strong>November 2025</strong></div>
-          <div class="fact"><small>Current role</small><strong>IT Support Technician</strong></div>
-          <div class="fact"><small>Focus</small><strong>Systems + Software</strong></div>
-          <div class="fact"><small>Based in</small><strong>Mpumalanga, South Africa</strong></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="projects">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div><div class="kicker">02 / PROJECTS</div><h2>Proof, not just a<br>technology list.</h2></div>
-        <p class="section-intro">Three projects that show how I approach architecture, data, testing, automation and user-facing systems.</p>
-      </div>
-
-      <article class="project-feature reveal">
-        <div class="project-info">
-          <div class="project-number">01 — FLAGSHIP / FULL-STACK + DATA</div>
-          <h3 class="project-title">Heritage Site Information System</h3>
-          <p class="project-desc">A Django platform for managing heritage-site information with a dual-database architecture: PostgreSQL for transactional data and MongoDB for analytical/reporting workloads.</p>
-          <div class="tags"><span class="tag">DJANGO</span><span class="tag">POSTGRESQL</span><span class="tag">MONGODB</span><span class="tag">DOCKER</span><span class="tag">PYTEST</span><span class="tag">GITHUB ACTIONS</span></div>
-          <div class="metrics"><div class="metric"><b>45</b><span>automated tests</span></div><div class="metric"><b>02</b><span>database engines</span></div><div class="metric"><b>CI/CD</b><span>automated pipeline</span></div></div>
-          <div class="actions"><a class="btn" href="https://github.com/Sinothando-Mthombeni/Heritage-Site-Information-System" target="_blank" rel="noopener">VIEW REPOSITORY ↗</a></div>
-        </div>
-        <div class="architecture">
-          <div class="arch">
-            <div class="arch-title">SYSTEM ARCHITECTURE / HIGH LEVEL</div>
-            <div class="flow">
-              <div class="box"><i></i><b>USER / UI</b><span>Bootstrap · Chart.js</span></div>
-              <div class="box"><i></i><b>DJANGO</b><span>Views · services · REST</span></div>
-              <div class="box"><i></i><b>POSTGRESQL</b><span>Transactional data</span></div>
-              <div class="box"><i></i><b>MONGODB</b><span>Analytics / reporting</span></div>
-            </div>
+          <p class="eyebrow">Software engineer · Mpumalanga, South Africa</p>
+          <h1 id="hero-title">I build software that feels <em>considered.</em></h1>
+          <p class="hero-copy">A systems-minded developer focused on practical applications, data workflows and the details that make software dependable.</p>
+          <div class="actions">
+            <a class="button primary" href="#work">Explore selected work <span aria-hidden="true">↓</span></a>
+            <a class="button" href="Sinothando_General_CV.pdf" download>Download CV <span aria-hidden="true">↓</span></a>
           </div>
         </div>
-      </article>
-
-      <div class="project-grid">
-        <article class="project-card reveal">
-          <div class="card-top"><span>02 / SALESFORCE</span><span>CRM + APPLICATION</span></div>
-          <h3>NGO Donor & Programme Management</h3>
-          <p>A Salesforce platform for donor and programme management using custom objects, Apex, SOQL and Lightning Web Components. Built with automated testing and a live dashboard experience.</p>
-          <div class="tags"><span class="tag">APEX</span><span class="tag">LWC</span><span class="tag">SOQL</span><span class="tag">FLOWS</span></div>
-          <div class="card-link">86%+ APEX COVERAGE · 7 TEST CLASSES →</div>
-        </article>
-        <article class="project-card reveal">
-          <div class="card-top"><span>03 / DATA</span><span>ETL + VISUALISATION</span></div>
-          <h3>NIDS Socio-Economic Wellbeing Analysis</h3>
-          <p>A multi-wave analysis pipeline built from South Africa's National Income Dynamics Study, cleaning and harmonising survey data to explore inequality, household wellbeing and recovery over time.</p>
-          <div class="tags"><span class="tag">PYTHON</span><span class="tag">PANDAS</span><span class="tag">NUMPY</span><span class="tag">MATPLOTLIB</span><span class="tag">SEABORN</span></div>
-          <div class="card-link">150K+ RECORDS · 5 SURVEY WAVES →</div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="experience">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div><div class="kicker">03 / EXPERIENCE</div><h2>From keeping systems<br>running to building them.</h2></div>
-        <p class="section-intro">The current role is grounding my engineering work in the realities of users, infrastructure and operational reliability.</p>
-      </div>
-      <div class="timeline">
-        <article class="timeline-item reveal">
-          <div class="timeline-date">MAR 2026 — PRESENT</div>
-          <h3>Mpumalanga Economic Growth Agency (MEGA)</h3>
-          <div class="timeline-role">IT SUPPORT TECHNICIAN · MPUMALANGA, SOUTH AFRICA</div>
-          <p>Supporting users and organisational systems through desktop and network troubleshooting, ticket and incident resolution, access and user administration, while growing practical exposure to Active Directory, PowerShell and Windows Server.</p>
-        </article>
-        <article class="timeline-item reveal">
-          <div class="timeline-date">2022 — 2025</div>
-          <h3>North-West University</h3>
-          <div class="timeline-role">BSC INFORMATION TECHNOLOGY</div>
-          <p>Built a foundation across databases, data structures and algorithms, object-oriented programming, statistics, systems analysis and design, data analytics, artificial intelligence, networks, operating systems and decision support systems.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="stack">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div><div class="kicker">04 / CAPABILITIES</div><h2>Four layers.<br>One toolkit.</h2></div>
-        <p class="section-intro">Technologies are grouped by the work they enable, with projects providing the evidence behind the stack.</p>
-      </div>
-      <div class="cap-grid">
-        <article class="cap reveal"><div class="icon">01 //</div><h3>Build</h3><p>Applications, APIs and business-facing functionality.</p><ul><li>Python</li><li>Django</li><li>JavaScript</li><li>REST APIs</li><li>Salesforce</li><li>Apex</li><li>LWC</li></ul></article>
-        <article class="cap reveal"><div class="icon">02 //</div><h3>Data</h3><p>Structured storage, analytical workloads and pipelines.</p><ul><li>SQL</li><li>PostgreSQL</li><li>MongoDB</li><li>Pandas</li><li>NumPy</li><li>ETL</li><li>Visualisation</li></ul></article>
-        <article class="cap reveal"><div class="icon">03 //</div><h3>Systems</h3><p>Infrastructure, support and the operational layer beneath applications.</p><ul><li>Windows Server</li><li>Active Directory</li><li>PowerShell</li><li>IT Support</li><li>Networking</li><li>Troubleshooting</li></ul></article>
-        <article class="cap reveal"><div class="icon">04 //</div><h3>Delivery</h3><p>Making software reproducible, testable and deployable.</p><ul><li>Git</li><li>GitHub Actions</li><li>Docker</li><li>pytest</li><li>CI/CD</li><li>Render</li><li>Power BI</li></ul></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section contact" id="contact">
-    <div class="wrap">
-      <div class="contact-box reveal">
-        <div>
-          <div class="kicker">05 / CONTACT</div>
-          <h2>Let's build something that works.</h2>
-          <p>Open to graduate and junior opportunities across software development, data engineering, Salesforce development and systems-focused roles.</p>
-        </div>
-        <div class="contact-actions">
-          <a class="btn primary" href="mailto:sinopapi7@gmail.com">EMAIL ME ↗</a>
-          <a class="btn" href="https://github.com/Sinothando-Mthombeni" target="_blank" rel="noopener">GITHUB ↗</a>
-          <a class="btn" href="https://www.linkedin.com/in/sinothando-mthombeni/" target="_blank" rel="noopener">LINKEDIN ↗</a>
+        <div class="hero-art reveal" aria-label="Portrait of Sinothando Mthombeni">
+          <img class="portrait" src="papi.jpg" alt="Sinothando Mthombeni">
+          <span class="art-note top">SYSTEMS × SOFTWARE<br>BUILT WITH INTENT</span>
+          <span class="art-note bottom">CURRENTLY<br>IT SUPPORT TECHNICIAN</span>
         </div>
       </div>
-      <footer><span>S//SYSTEMS · SINOTHANDO MTHOMBENI</span><span>© 2026 · BUILT WITH HTML / CSS / JS</span></footer>
-    </div>
-  </section>
-</main>
-</div>
+    </section>
 
-<nav class="mobile-nav" aria-label="Mobile navigation">
-  <a class="active" href="#overview">01<br>HOME</a>
-  <a href="#work">02<br>WORK</a>
-  <a href="#projects">03<br>PROJECTS</a>
-  <a href="#stack">04<br>STACK</a>
-  <a href="#contact">05<br>CONTACT</a>
-</nav>
+    <div class="intro-strip" aria-hidden="true"><div class="shell"><p>Software engineering <span>•</span> Data systems <span>•</span> Platform thinking <span>•</span> Reliable delivery</p></div></div>
 
-<script>
-const progress = document.getElementById('progress');
-const updateProgress = () => {
-  const h = document.documentElement;
-  progress.style.width = ((h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100) + '%';
-};
-window.addEventListener('scroll', updateProgress, {passive:true}); updateProgress();
+    <section class="section shell" id="work" aria-labelledby="work-title">
+      <div class="section-head reveal"><div><p class="section-label">01 / Selected work</p><h2 id="work-title">The work should do the talking.</h2></div><p class="section-intro">Three projects that show how I approach application design, data and delivery—not just the tools I have used.</p></div>
+      <div class="work-list">
+        <article class="project reveal">
+          <div class="project-index">01</div>
+          <div class="project-copy"><p class="section-label">Full-stack / data</p><h3>Heritage Site Information System</h3><p>A Django platform for managing heritage-site information with transactional and analytical workloads kept intentionally separate.</p><div class="tags"><span class="tag">DJANGO</span><span class="tag">POSTGRESQL</span><span class="tag">MONGODB</span><span class="tag">DOCKER</span><span class="tag">PYTEST</span></div><div class="project-links"><a href="projects/heritage.html">Read case study <span aria-hidden="true">↗</span></a><a href="https://github.com/Sinothando-Mthombeni/heritage-site-information-system" target="_blank" rel="noopener">View repository <span aria-hidden="true">↗</span></a></div></div>
+          <div class="project-visual heritage-visual" aria-label="Abstract system architecture visual"><svg viewBox="0 0 500 360" aria-hidden="true"><line x1="112" y1="78" x2="365" y2="150"/><line x1="365" y1="150" x2="145" y2="295"/><line x1="365" y1="150" x2="405" y2="295"/></svg><span class="arch-box a">DJANGO APP</span><span class="arch-box b">SERVICE LAYER</span><span class="arch-box c">POSTGRESQL</span><span class="arch-box d">MONGODB</span></div>
+        </article>
+        <article class="project reveal">
+          <div class="project-index">02</div>
+          <div class="project-copy"><p class="section-label">Salesforce / CRM</p><h3>NGO Donor &amp; Programme Management</h3><p>A Salesforce application for managing donor and programme work with custom objects, automated logic and a clear dashboard experience.</p><div class="tags"><span class="tag">APEX</span><span class="tag">LWC</span><span class="tag">SOQL</span><span class="tag">FLOWS</span><span class="tag">TESTING</span></div><div class="project-links"><a href="projects/ngo-donor.html">Read case study <span aria-hidden="true">↗</span></a><a href="https://github.com/Sinothando-Mthombeni/ngo-donor-management" target="_blank" rel="noopener">View repository <span aria-hidden="true">↗</span></a></div></div>
+          <div class="project-visual ngo-visual" aria-label="Abstract relationship model visual"><span class="ngo-node one">DONORS</span><span class="ngo-node two">PROGRAMMES</span><span class="ngo-node three">OPERATIONS</span></div>
+        </article>
+        <article class="project reveal">
+          <div class="project-index">03</div>
+          <div class="project-copy"><p class="section-label">Data / analysis</p><h3>NIDS Socio-Economic Wellbeing Analysis</h3><p>A multi-wave data pipeline that cleans and harmonises survey data to explore household wellbeing, inequality and recovery over time.</p><div class="tags"><span class="tag">PYTHON</span><span class="tag">PANDAS</span><span class="tag">NUMPY</span><span class="tag">MATPLOTLIB</span><span class="tag">SEABORN</span></div><div class="project-links"><a href="projects/nids.html">Read case study <span aria-hidden="true">↗</span></a><a href="https://github.com/Sinothando-Mthombeni/nids-socioeconomic-wellbeing-data-visualization-" target="_blank" rel="noopener">View repository <span aria-hidden="true">↗</span></a></div></div>
+          <div class="project-visual nids-visual" aria-label="Abstract data visualisation"><span class="nids-note">MULTI-WAVE<br>DATA → INSIGHT</span><span class="nids-bar"></span><span class="nids-bar"></span><span class="nids-bar"></span><span class="nids-bar"></span><span class="nids-bar"></span></div>
+        </article>
+      </div>
+    </section>
 
-const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => { if(entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); }});
-}, {threshold:.12});
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    <section class="section shell" id="about" aria-labelledby="about-title">
+      <div class="about-grid"><div class="reveal"><p class="section-label">02 / About</p><h2 id="about-title">Technical range is useful when it stays connected to real problems.</h2></div><div class="reveal"><p class="about-lead">I work across the boundary between people, infrastructure, applications and data.</p><p class="about-copy">I am an IT Support Technician at the Mpumalanga Economic Growth Agency (MEGA) and a BSc Information Technology graduate from North-West University. Alongside systems support, I build projects that strengthen my software engineering, data engineering and Salesforce development practice.</p></div></div>
+      <div class="capabilities reveal" aria-label="Core capabilities"><div class="capability"><h3>Build</h3><p>Python, Django, JavaScript, REST APIs, Salesforce and Apex.</p></div><div class="capability"><h3>Data</h3><p>PostgreSQL, MongoDB, SQL, Pandas, ETL and visual analysis.</p></div><div class="capability"><h3>Systems</h3><p>Windows Server, Active Directory, PowerShell, troubleshooting and support.</p></div><div class="capability"><h3>Delivery</h3><p>Git, Docker, GitHub Actions, pytest and repeatable workflows.</p></div></div>
+    </section>
 
-const links = [...document.querySelectorAll('.rail-link, .mobile-nav a')];
-const sections = [...document.querySelectorAll('section[id]')];
-const sectionObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) {
-      links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
-    }
-  });
-}, {rootMargin:'-35% 0px -55% 0px'});
-sections.forEach(s => sectionObserver.observe(s));
+    <section class="section experience" id="experience" aria-labelledby="experience-title"><div class="shell"><p class="section-label reveal">03 / Experience snapshot</p><h2 class="reveal" id="experience-title">Grounded in the work of keeping systems moving.</h2><div class="experience-grid reveal"><article class="experience-card"><p class="experience-date">MAR 2026 — PRESENT</p><h3>IT Support Technician</h3><p>Mpumalanga Economic Growth Agency (MEGA)</p><p>Supporting users and organisational systems through troubleshooting, incident resolution, access administration and systems support.</p></article><article class="experience-card"><p class="experience-date">2022 — 2025</p><h3>BSc Information Technology</h3><p>North-West University</p><p>Foundation across software, databases, analytics, networks, operating systems and systems analysis.</p></article></div></div></section>
 
-// Lightweight system graph: canvas/SVG-style network, no external 3D dependency.
-const canvas = document.getElementById('network');
-const ctx = canvas.getContext('2d');
-let nodes = [];
-function resizeCanvas(){
-  const r = canvas.getBoundingClientRect(), d = Math.min(window.devicePixelRatio || 1, 2);
-  canvas.width = r.width*d; canvas.height = r.height*d; ctx.setTransform(d,0,0,d,0,0);
-  nodes = [
-    {x:r.width*.25,y:r.height*.27,label:'BUILD',c:'#7dd3fc'},
-    {x:r.width*.72,y:r.height*.24,label:'DATA',c:'#a78bfa'},
-    {x:r.width*.30,y:r.height*.68,label:'SYSTEMS',c:'#34d399'},
-    {x:r.width*.73,y:r.height*.67,label:'DELIVERY',c:'#7dd3fc'}
-  ];
-}
-function drawGraph(t=0){
-  const r=canvas.getBoundingClientRect(); ctx.clearRect(0,0,r.width,r.height);
-  ctx.lineWidth=1;
-  [[0,1],[0,2],[1,3],[2,3]].forEach(([a,b],i)=>{
-    const n=nodes[a],m=nodes[b], wave=(Math.sin(t/1100+i)+1)/2;
-    ctx.strokeStyle='rgba(125,211,252,'+(0.12+wave*.12)+')';
-    ctx.beginPath();ctx.moveTo(n.x,n.y);ctx.lineTo(m.x,m.y);ctx.stroke();
-  });
-  nodes.forEach((n,i)=>{
-    const pulse=3+Math.sin(t/700+i)*1.5;
-    ctx.fillStyle=n.c;ctx.shadowColor=n.c;ctx.shadowBlur=16;
-    ctx.beginPath();ctx.arc(n.x,n.y,pulse,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;
-    ctx.font='10px JetBrains Mono';ctx.fillStyle='rgba(248,250,252,.72)';
-    ctx.fillText(n.label,n.x+12,n.y+4);
-  });
-  requestAnimationFrame(drawGraph);
-}
-resizeCanvas(); requestAnimationFrame(drawGraph); window.addEventListener('resize',resizeCanvas);
+    <section class="section contact shell" id="contact" aria-labelledby="contact-title"><div class="contact-box reveal"><div><p class="section-label">04 / Contact</p><h2 id="contact-title">Let’s build something with care.</h2><p>Open to graduate and junior opportunities across software development, data engineering, Salesforce development and systems-focused roles.</p></div><div class="actions"><a class="button" href="mailto:sinopapi7@gmail.com">Email me <span aria-hidden="true">↗</span></a><a class="button" href="https://www.linkedin.com/in/sinothando-mthombeni/" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a></div></div></section>
+  </main>
 
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-if(reduceMotion){ document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible')); }
-</script>
+  <footer class="shell footer"><span>© 2026 Sinothando Mthombeni</span><span>Designed and built with HTML, CSS and JavaScript.</span></footer>
+  <script src="scripts/main.js" defer></script>
 </body>
 </html>

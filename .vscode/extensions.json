@@ -1,0 +1,7 @@
+{
+  "recommendations": [
+    "ecmel.vscode-html-css",
+    "davidanson.vscode-markdownlint",
+    "ritwickdey.liveserver"
+  ]
+}

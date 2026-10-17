@@ -1,5 +1,6 @@
 body .hero-art:before{width:160px;height:160px;right:-40px;top:-35px}
 @media(max-width:620px){body .hero-art:before{width:112px;height:112px;right:-30px;top:-25px}}
+@media(max-width:620px){body .hero-art .portrait{inset:42px 24px 0;width:calc(100% - 48px);height:calc(100% - 42px);object-fit:contain;object-position:center top;mix-blend-mode:normal}}
 html:not(.js-reveal) .reveal{opacity:1;transform:none;transition:none}
 .js-reveal .reveal{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
 .js-reveal .reveal.visible{opacity:1;transform:none}
